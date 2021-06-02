@@ -1,10 +1,10 @@
 from django.db import models
 
 class StatusCrm(models.Model):
-    Status_name = models.CharField(max_length=200, verbose_name='Название статуса')
+    status_name = models.CharField(max_length=200, verbose_name='Название статуса')
 
     def __str__(self):
-        return self.order_name
+        return self.status_name
 
     class Meta:
         verbose_name = 'Статус'
@@ -27,7 +27,7 @@ class Order(models.Model):
 
 class ComentCrm(models.Model):
     coment_bindind = models.ForeignKey(Order, on_delete=models.CASCADE, verbose_name='Заявка')
-    coment_text = models.TextField(verbose_name='Текс комментария')
+    coment_text = models.TextField(verbose_name='Текст комментария')
     coment_dt = models.DateTimeField(auto_now=True, verbose_name='Дата создания')
 
     def __str__(self):
